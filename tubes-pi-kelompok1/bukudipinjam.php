@@ -44,7 +44,64 @@ session_start();
 	<br><br>
 	<br><br>
 	<center>
-	
+		<form action="kembalikan_buku.php" method="GET">
+		
+		<?php 
+		include "koneksi.php";
+
+
+		$username = $_SESSION['username'];
+		$userr = mysqli_query($conn, "SELECT * FROM akun WHERE username = '$username'");
+
+
+		$data_user = mysqli_fetch_array($userr);
+		$id_user = $data_user['id'];
+		  $sql=mysqli_query($conn, "SELECT * FROM buku_dipinjam WHERE id_user = '$id_user'");
+		  echo '
+		  <table style="border: 1px solid black;"> 
+		  <thead> 
+
+		  	<tr>
+		  		<th>No Peminjaman</th>
+		  		<th>Id Buku</th>
+		  		<th>Nama Buku</th>
+		  		<th>Tanggal Peminjaman</th>
+		  	</tr>
+		  </thead>
+		  <tbody>';
+		  while ($row = mysqli_fetch_array($sql))
+			{
+				echo '<tr>
+						<td>'.$row['id'].'</td>
+						<td>'.$row['id_buku'].'</td>
+						<td>'.$row['nama_buku'].'</td>
+						<td>'.$row['tanggal_pinjam'].'</td>
+						
+						
+						
+					</tr>';
+			}
+			echo '
+				</tbody>
+
+		  </table>
+
+		  '
+
+
+		  
+		 ?>
+		   <br><br>
+		   <h5>Masukkan id:</h5>
+		 <input type="text" name="id_buku" placeholder="Masukkan id buku"> <br>
+		 
+		<button type="submit" name="submit" onclick="return confirm('Apa anda yakin ingin mengembalikan?');">Kembalikan Buku</button>
+
+
+		 
+		
+
+		</form>
 	</center>
 </body>
 </html>

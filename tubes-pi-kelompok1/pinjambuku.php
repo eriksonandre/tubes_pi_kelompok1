@@ -45,7 +45,7 @@ session_start();
 	<br><br>
 	<center>
 		<h1>Pinjam Buku</h1>
-		<form action="post_pinjam_buku.php" method="POST">
+		<form action="post_pinjam_buku.php" method="GET">
 		
 		<?php 
 		include "koneksi.php";
