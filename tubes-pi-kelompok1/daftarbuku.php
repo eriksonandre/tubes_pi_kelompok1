@@ -63,7 +63,7 @@ session_start();
     </div>
   </div>
 </nav>
-<div class="div-center3">
+<div class="div-center">
 		<h4>Daftar Buku</h4>
 		<hr />
 		<form action="get_buku.php" method="GET">

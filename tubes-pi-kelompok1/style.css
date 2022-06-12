@@ -43,7 +43,7 @@ tr{
 	width: 80%!important;
 	background-color: #fff;
 	margin : 0 auto;
-	
+
 
 }
 
@@ -82,7 +82,7 @@ tr{
 }
 
 body > div > form > table > thead > tr > th:nth-child(1), body > div > form > table > thead > tr > th:nth-child(3), body > div > form > table > thead > tr > th:nth-child(4){
-	width: 120px;
+	width: 180px;
 }
 
 div.content {
