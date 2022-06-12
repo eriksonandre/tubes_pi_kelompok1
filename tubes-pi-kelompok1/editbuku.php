@@ -45,7 +45,7 @@ session_start();
 	<br><br>
 	<center>
 		<h1>Edit Buku</h1>
-		<form action="delete_buku.php" method="POST">
+		<form action="put_buku.php" method="GET">
 		
 		<?php 
 		include "koneksi.php";
@@ -87,14 +87,15 @@ session_start();
 		 ?>
 		   <br><br>
 		   <h5>Masukkan id:</h5>
-		 <input type="text" name="id_buku" placeholder="Masukkan id buku yang ingin diedit"> <br>
+		 <input type="text" name="id_buku" placeholder="Masukkan id buku"> <br>
 		 <h5>Nama buku:</h5>
-		 <input type="text" name="nama_buku" placeholder="Masukkan nama buku"> <br>
+		 <input type="text" name="nama_buku" value="" placeholder="Masukkan nama buku"> <br>
 		 <h5>Genre buku:</h5>
 		 <input type="text" name="genre_buku" placeholder="Masukkan genre buku"> <br>
 		 <h5>Stok buku:</h5>
 		 <input type="number" name="stok_buku" placeholder="Masukkan stok buku"> <br>
-		<button type="submit" name="submit" onclick="return confirm('Apa anda yakin ingin menghapus?');">Edit Buku</button>
+		<button type="submit" name="submit" onclick="return confirm('Apa anda yakin ingin mengedit?');">Edit Buku</button>
+
 
 		 
 		
