@@ -18,7 +18,6 @@ if ($data_db['stok_buku'] == 0) {
               </script>';
               exit();
     }
-
 $username = $_SESSION['username'];
 $userr = mysqli_query($conn, "SELECT * FROM akun WHERE username = '$username'");
 
