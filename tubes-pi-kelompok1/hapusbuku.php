@@ -45,7 +45,7 @@ session_start();
 	<br><br>
 	<center>
 		<h1>Delete Buku</h1>
-		<form action="delete_buku.php" method="POST">
+		<form action="delete_buku.php" method="GET">
 		
 		<?php 
 		include "koneksi.php";

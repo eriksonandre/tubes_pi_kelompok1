@@ -94,7 +94,7 @@ session_start();
 		 <input type="text" name="genre_buku" placeholder="Masukkan genre buku"> <br>
 		 <h5>Stok buku:</h5>
 		 <input type="number" name="stok_buku" placeholder="Masukkan stok buku"> <br>
-		<button type="submit" name="submit" onclick="return confirm('Apa anda yakin ingin menghapus?');">Hapus Buku</button>
+		<button type="submit" name="submit" onclick="return confirm('Apa anda yakin ingin menghapus?');">Edit Buku</button>
 
 		 
 		
