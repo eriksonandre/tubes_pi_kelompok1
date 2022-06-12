@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 12, 2022 at 06:03 PM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.5
+-- Generation Time: Jun 12, 2022 at 06:55 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,8 +42,9 @@ CREATE TABLE `akun` (
 INSERT INTO `akun` (`id`, `nama`, `username`, `password`, `level`) VALUES
 (1, 'admin', 'admin', 'admin', 'admin'),
 (2, 'andre', 'andre', 'andre', 'user'),
-(8, 'salsa', 'salsa', 'salsa', 'user'),
-(9, 'frida', 'frida', 'frida', 'user');
+(3, 'salsa', 'salsa', 'salsa', 'user'),
+(4, 'frida', 'frida', 'frida', 'user'),
+(5, 'sayid', 'sayid', 'sayid', 'user');
 
 -- --------------------------------------------------------
 
@@ -63,9 +64,13 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `nama_buku`, `genre_buku`, `stok_buku`) VALUES
-(47, 'Java', 7, 9),
-(48, 'Python', 1, 0),
-(49, 'Cpp', 1, 24);
+(1, 'Java', 7, 10),
+(2, 'Python', 1, 0),
+(3, 'Cpp', 1, 24),
+(4, 'RUBY', 2, 8),
+(5, 'Pocong', 3, 13),
+(6, 'Naruto', 7, 40),
+(7, 'Percy Jackson', 1, 21);
 
 -- --------------------------------------------------------
 
@@ -80,14 +85,6 @@ CREATE TABLE `buku_dipinjam` (
   `nama_buku` varchar(255) NOT NULL,
   `tanggal_pinjam` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `buku_dipinjam`
---
-
-INSERT INTO `buku_dipinjam` (`id`, `id_user`, `id_buku`, `nama_buku`, `tanggal_pinjam`) VALUES
-(39, 2, 49, 'Cpp', '2022-06-12 16:01:23'),
-(40, 2, 47, 'Java', '2022-06-12 16:01:30');
 
 -- --------------------------------------------------------
 
@@ -152,19 +149,19 @@ ALTER TABLE `genre_buku`
 -- AUTO_INCREMENT for table `akun`
 --
 ALTER TABLE `akun`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id_buku` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `buku_dipinjam`
 --
 ALTER TABLE `buku_dipinjam`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `genre_buku`
