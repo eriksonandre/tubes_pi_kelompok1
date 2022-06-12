@@ -22,6 +22,7 @@ session_start();
 		}
 		<li><a href="postingbuku.php">Posting Buku</a></li>
 		<li><a href="editbuku.php">Edit Buku</a></li>
+		<li><a href="hapusbuku.php">Hapus Buku</a></li>
 		<?php
 			}
 		?>
