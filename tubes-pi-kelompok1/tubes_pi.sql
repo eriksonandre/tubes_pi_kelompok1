@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2022 at 11:09 PM
+-- Generation Time: Jun 12, 2022 at 06:03 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.5
 
@@ -63,14 +63,31 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id_buku`, `nama_buku`, `genre_buku`, `stok_buku`) VALUES
-(34, 'C++', 2, 1),
-(36, 'andre', 4, 0),
-(37, 'andree', 4, 0),
-(38, 'andreeee', 4, 3),
-(40, 'Java', 2, 1),
-(42, 'revalitas', 5, 3),
-(43, 'remasol', 1, 7),
-(44, 'asdfasfd', 1, 9);
+(47, 'Java', 7, 9),
+(48, 'Python', 1, 0),
+(49, 'Cpp', 1, 24);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buku_dipinjam`
+--
+
+CREATE TABLE `buku_dipinjam` (
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_buku` int(11) NOT NULL,
+  `nama_buku` varchar(255) NOT NULL,
+  `tanggal_pinjam` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `buku_dipinjam`
+--
+
+INSERT INTO `buku_dipinjam` (`id`, `id_user`, `id_buku`, `nama_buku`, `tanggal_pinjam`) VALUES
+(39, 2, 49, 'Cpp', '2022-06-12 16:01:23'),
+(40, 2, 47, 'Java', '2022-06-12 16:01:30');
 
 -- --------------------------------------------------------
 
@@ -114,6 +131,14 @@ ALTER TABLE `buku`
   ADD KEY `genre_buku` (`genre_buku`);
 
 --
+-- Indexes for table `buku_dipinjam`
+--
+ALTER TABLE `buku_dipinjam`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_buku` (`id_buku`);
+
+--
 -- Indexes for table `genre_buku`
 --
 ALTER TABLE `genre_buku`
@@ -133,7 +158,13 @@ ALTER TABLE `akun`
 -- AUTO_INCREMENT for table `buku`
 --
 ALTER TABLE `buku`
-  MODIFY `id_buku` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_buku` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `buku_dipinjam`
+--
+ALTER TABLE `buku_dipinjam`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `genre_buku`
@@ -150,6 +181,13 @@ ALTER TABLE `genre_buku`
 --
 ALTER TABLE `buku`
   ADD CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`genre_buku`) REFERENCES `genre_buku` (`id_genre`);
+
+--
+-- Constraints for table `buku_dipinjam`
+--
+ALTER TABLE `buku_dipinjam`
+  ADD CONSTRAINT `buku_dipinjam_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `akun` (`id`),
+  ADD CONSTRAINT `buku_dipinjam_ibfk_2` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id_buku`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
